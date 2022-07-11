@@ -8,8 +8,8 @@
 import Foundation
 
 extension String {
-    var base64Decoded: String? {
-        guard let decodedData = Data(base64Encoded: self) else { return nil }
-        return String(data: decodedData, encoding: .utf8)
-    }
+//    var base64Decoded: String? {
+//        guard let decodedData = Data(base64Encoded: self) else { return nil }
+//        return String(data: decodedData, encoding: .utf8)
+//    }
 }

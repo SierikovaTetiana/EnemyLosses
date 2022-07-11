@@ -9,24 +9,22 @@ import Foundation
 
 protocol MainViewModelProtocol {
     var updateViewData: ((ViewData)->())? {  get set }
-    func startFetch(parse: ViewData.DataToFetch)
+    func startFetch()
 }
 
 final class MainViewModel: MainViewModelProtocol {
     
     public var updateViewData: ((ViewData) -> ())?
+    var personalDataToPass = [ViewData.EnemyLossesPersonal]()
     
     init() {
         updateViewData?(.initial)
     }
     
-    public func startFetch(parse: ViewData.DataToFetch) {
+    public func startFetch() {
         updateViewData?(.loading)
-        if parse == ViewData.DataToFetch.personal {
-            parsePersonalLosses()
-        } else if parse == ViewData.DataToFetch.equipment {
-            parseEquipmentLosses()
-        }
+        parsePersonalLosses()
+        parseEquipmentLosses()
     }
     
     func parsePersonalLosses() {
@@ -56,9 +54,9 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     private func parseEquipmentLosses() {
-        guard let urlPersonLosses = URL(string: "https://raw.githubusercontent.com/MacPaw/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_equipment.json")
+        guard let urlEquipmentLosses = URL(string: "https://raw.githubusercontent.com/MacPaw/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_equipment.json")
         else { return }
-        let task = URLSession.shared.dataTask(with: urlPersonLosses) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlEquipmentLosses) { (data, response, error) in
             if let error = error {
                 DispatchQueue.main.async {
                     self.updateViewData?(.failure(error.localizedDescription))

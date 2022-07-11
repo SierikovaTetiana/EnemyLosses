@@ -30,8 +30,7 @@ class MainViewController: UIViewController, Coordinating {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
-        viewModel.startFetch(parse: ViewData.DataToFetch.personal)
-        viewModel.startFetch(parse: ViewData.DataToFetch.equipment)
+        viewModel.startFetch()
         view.backgroundColor = .white
     }
     

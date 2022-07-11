@@ -25,18 +25,7 @@ extension MainViewModel {
                 lastDayLosses = personnelLossesInt
             }
         }
-        DispatchQueue.main.async {
-            self.updateViewData?(.success(dataToPass, nil, nil))
-        }
-    }
-    
-    private func stringOrIntToString(stringOrIntValue: StringOrInt) -> String {
-        switch stringOrIntValue {
-        case .string(let s):
-            return "\(s)"
-        case .int(let d):
-            return "\(d)"
-        }
+        self.personalDataToPass = dataToPass
     }
     
     func addDataEquipmentLosses(data enemyEquipmentLosses: [EnemyLossesEquipmentToDecode]) {
@@ -67,9 +56,9 @@ extension MainViewModel {
             }
             lastDayEquipmentToPass.sort(by: { $0.equipmentStringForLabel < $1.equipmentStringForLabel })
             DispatchQueue.main.async {
-                self.updateViewData?(.success(nil, allDayEquipmentToPass, lastDayEquipmentToPass))
+                self.updateViewData?(.success(self.personalDataToPass, allDayEquipmentToPass, lastDayEquipmentToPass))
             }
-        } catch { print("Error", error)
+        } catch {
             DispatchQueue.main.async {
                 self.updateViewData?(.failure(error.localizedDescription))
             }
@@ -78,7 +67,7 @@ extension MainViewModel {
     
     private func countVehiclesAndFuelTank(vehiclesAndFuelTank: Int?, militaryAuto: Int?, fuelTank: Int?) -> Int {
         var totalVehiclesAndFuelTank = 0
-        if vehiclesAndFuelTank == nil && militaryAuto != nil && fuelTank != nil{
+        if vehiclesAndFuelTank == nil && militaryAuto != nil && fuelTank != nil {
             totalVehiclesAndFuelTank = (militaryAuto! + fuelTank!)
         } else {
             totalVehiclesAndFuelTank = vehiclesAndFuelTank!
@@ -90,5 +79,14 @@ extension MainViewModel {
         guard let valueAsString = anyData as? String else { return 0 }
         guard let valueAsInt = Int(valueAsString) else { return 0 }
         return valueAsInt
+    }
+    
+    private func stringOrIntToString(stringOrIntValue: StringOrInt) -> String {
+        switch stringOrIntValue {
+        case .string(let s):
+            return "\(s)"
+        case .int(let d):
+            return "\(d)"
+        }
     }
 }

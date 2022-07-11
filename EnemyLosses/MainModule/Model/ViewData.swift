@@ -44,9 +44,4 @@ enum ViewData {
         let countLastDay: String
         let equipment: String
     }
-    
-    enum DataToFetch {
-        case personal
-        case equipment
-    }
 }

@@ -34,16 +34,10 @@ class CalendarView: UIView {
         setupConstraints()
         switch calendarData {
         case .initial:
-            activityIndicator.isHidden = true
-            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
         case .success(let data):
-            updateCalendar(image: data.detailImage, monthAndYear: data.monthAndYear, calendarDays: data.calendarDates, lossesInDay: data.lossesInDay, monthLosses:data.monthLosses, isHidden: false)
-            activityIndicator.isHidden = true
-            activityIndicator.stopAnimating()
-        case .plusMonth:
-            activityIndicator.isHidden = true
-            activityIndicator.stopAnimating()
-        case .minusMonth:
+            updateCalendar(image: data.detailImage, monthAndYear: data.monthAndYear, calendarDays: data.calendarDates, lossesInDay: data.lossesInDay, monthLosses: data.monthLosses, isHidden: false)
             activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
         }

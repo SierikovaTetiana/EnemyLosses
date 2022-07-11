@@ -10,7 +10,6 @@
 		602631C728723491000C7638 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631C628723491000C7638 /* SearchData.swift */; };
 		602631C9287439BA000C7638 /* Loopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631C8287439BA000C7638 /* Loopable.swift */; };
 		602631CB28749087000C7638 /* EquipmentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631CA28749087000C7638 /* EquipmentTitle.swift */; };
-		602631CE2874A998000C7638 /* String+base64Decoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631CD2874A998000C7638 /* String+base64Decoded.swift */; };
 		602631D02874ACDF000C7638 /* MainViewModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631CF2874ACDF000C7638 /* MainViewModelExtension.swift */; };
 		604CE7F6286F6E9F00DE5CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604CE7F5286F6E9F00DE5CEE /* AppDelegate.swift */; };
 		604CE7F8286F6E9F00DE5CEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604CE7F7286F6E9F00DE5CEE /* SceneDelegate.swift */; };
@@ -37,7 +36,6 @@
 		602631C628723491000C7638 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		602631C8287439BA000C7638 /* Loopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loopable.swift; sourceTree = "<group>"; };
 		602631CA28749087000C7638 /* EquipmentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentTitle.swift; sourceTree = "<group>"; };
-		602631CD2874A998000C7638 /* String+base64Decoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+base64Decoded.swift"; sourceTree = "<group>"; };
 		602631CF2874ACDF000C7638 /* MainViewModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelExtension.swift; sourceTree = "<group>"; };
 		604CE7F2286F6E9F00DE5CEE /* EnemyLosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnemyLosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		604CE7F5286F6E9F00DE5CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,14 +71,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		602631CC2874A967000C7638 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				602631CD2874A998000C7638 /* String+base64Decoded.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		604CE7E9286F6E9F00DE5CEE = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +105,6 @@
 				604CE80A286F6F1400DE5CEE /* View */,
 				604CE80D286F6F4000DE5CEE /* Model */,
 				604CE810286F712B00DE5CEE /* ViewModel */,
-				602631CC2874A967000C7638 /* Extension */,
 				607996D42875FE26002AE881 /* Coordinator */,
 			);
 			path = MainModule;
@@ -289,7 +278,6 @@
 				602631C9287439BA000C7638 /* Loopable.swift in Sources */,
 				602631C728723491000C7638 /* SearchData.swift in Sources */,
 				607996EC28784AE3002AE881 /* CalendarViewExtension.swift in Sources */,
-				602631CE2874A998000C7638 /* String+base64Decoded.swift in Sources */,
 				607996DC2876BAEC002AE881 /* DetailViewController.swift in Sources */,
 				604CE7F8286F6E9F00DE5CEE /* SceneDelegate.swift in Sources */,
 				602631D02874ACDF000C7638 /* MainViewModelExtension.swift in Sources */,
