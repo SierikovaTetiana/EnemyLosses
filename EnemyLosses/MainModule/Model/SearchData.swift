@@ -13,7 +13,7 @@ struct DataToDecode: Codable {
 
 struct EnemyLossesPersonalToDecode: Codable {
     let date: String?
-    let day: Int?
+    let day: StringOrInt?
     let personnel: Int?
     let POW: Int?
 }
@@ -64,9 +64,9 @@ enum StringOrInt: Codable {
             self = .string(string)
             return
         }
-        throw Error.couldNotFindStringOrDouble
+        throw Error.couldNotFindStringOrInt
     }
     enum Error: Swift.Error {
-        case couldNotFindStringOrDouble
+        case couldNotFindStringOrInt
     }
 }

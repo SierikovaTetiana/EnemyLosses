@@ -16,16 +16,26 @@ extension MainViewModel {
             guard let personnel = item.personnel else { return }
             guard let date = item.date else { return }
             guard let day = item.day else { return }
+            let dayAsString = stringOrIntToString(stringOrIntValue: day)
             guard let personnelLossesInt = item.personnel else { return }
             let POW = "\(String(describing: item.POW))"
             if let personLosses = item.personnel {
                 let dayPersonLosses = "\(personLosses - lastDayLosses)"
-                dataToPass.append(ViewData.EnemyLossesPersonal(date: date, day: "\(day)", personnel: "\(personnel)", dayPersonLosses: dayPersonLosses, POW: POW))
+                dataToPass.append(ViewData.EnemyLossesPersonal(date: date, day: dayAsString, personnel: "\(personnel)", dayPersonLosses: dayPersonLosses, POW: POW))
                 lastDayLosses = personnelLossesInt
             }
         }
         DispatchQueue.main.async {
             self.updateViewData?(.success(dataToPass, nil, nil))
+        }
+    }
+    
+    private func stringOrIntToString(stringOrIntValue: StringOrInt) -> String {
+        switch stringOrIntValue {
+        case .string(let s):
+            return "\(s)"
+        case .int(let d):
+            return "\(d)"
         }
     }
     
