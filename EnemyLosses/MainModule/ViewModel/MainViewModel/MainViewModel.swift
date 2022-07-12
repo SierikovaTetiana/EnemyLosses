@@ -27,7 +27,7 @@ final class MainViewModel: MainViewModelProtocol {
         parseEquipmentLosses()
     }
     
-    func parsePersonalLosses() {
+    private func parsePersonalLosses() {
         guard let urlPersonLosses = URL(string: "https://raw.githubusercontent.com/MacPaw/2022-Ukraine-Russia-War-Dataset/main/data/russia_losses_personnel.json")
         else { return }
         let task = URLSession.shared.dataTask(with: urlPersonLosses) { (data, response, error) in

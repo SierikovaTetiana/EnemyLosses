@@ -10,13 +10,13 @@ import UIKit
 class DetailViewController: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
-    var calendarView: CalendarView!
-    private var calendarModel: CalendarProtocol
+    var cellPressed: String = ""
+    var dataLossesEquipment = [ViewData.EnemyLossesEquipment]()
     private lazy var collectionView = calendarView.collectionView
     private lazy var monthNext = calendarView.monthNext
     private lazy var monthBack = calendarView.monthBack
-    var cellPressed: String = ""
-    var dataLossesEquipment = [ViewData.EnemyLossesEquipment]()
+    private var calendarView: CalendarView!
+    private var calendarModel: CalendarProtocol
     
     init(calendarModel: CalendarProtocol) {
         self.calendarModel = calendarModel
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController, Coordinating {
         collectionView.dataSource = self
         collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         calendarModel.setMonthView(cellPressed: cellPressed, data: dataLossesEquipment)
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.systemGray6
     }
     
     override func viewWillLayoutSubviews() {

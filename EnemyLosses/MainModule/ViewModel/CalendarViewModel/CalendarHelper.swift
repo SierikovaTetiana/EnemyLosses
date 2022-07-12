@@ -14,14 +14,9 @@ protocol CalendarProtocol {
     func minusMonth()
 }
 
-class CalendarHelper: CalendarProtocol {
+final class CalendarHelper: CalendarProtocol {
     
     public var updateCalendarData: ((CalendarData) -> ())?
-    
-    init() {
-        updateCalendarData?(.initial)
-    }
-    
     private let calendar = Calendar.current
     //    private var selectedDate = Date() //set to current time -> show current month (USE IF data is up to date)
     private var selectedDate = Date(timeIntervalSince1970: 1646153822) //set to March 2022
@@ -29,6 +24,10 @@ class CalendarHelper: CalendarProtocol {
     private var monthLosses = [String]()
     private var totalMonthLosses: Int = 0
     private var dictOfMonthLosses = [String : String]()
+    
+    init() {
+        updateCalendarData?(.initial)
+    }
     
     func plusMonth() {
         selectedDate = calendar.date(byAdding: .month, value: 1, to: selectedDate)!
@@ -72,9 +71,10 @@ class CalendarHelper: CalendarProtocol {
                 if child.label == cellPressed {
                     if let lossesValue = child.value as? String {
                         if let lossesValueInt = Int(lossesValue) {
-                            dictOfMonthLosses[item.date!] = "\(lossesValueInt - previousValue)"
-                            previousValue = lossesValueInt
-                            
+                            if let date = item.date {
+                                dictOfMonthLosses[date] = "\(lossesValueInt - previousValue)"
+                                previousValue = lossesValueInt
+                            }
                         }
                     }
                 }

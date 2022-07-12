@@ -48,12 +48,14 @@ class MainView: UIView {
     
     private func updateLosses(viewData: [ViewData.EnemyLossesPersonal]?, viewDataEquipment: [ViewData.EnemyLossesEquipment]?, cellData: [ViewData.CellData]?, isHidden: Bool) {
         if let viewData = viewData {
-            guard let personnel = viewData[(viewData.count) - 1].personnel else { return }
-            guard let day = viewData[viewData.count - 1].day else { return }
-            guard let dayPersonLosses = viewData[viewData.count - 1].dayPersonLosses else { return }
-            totalEnemyPersonLosses.text = " ~ \(personnel)"
-            dayEnemyPersonLosses.text = "+ \(dayPersonLosses)"
-            enemyPersonLosses.text = "Liquidated personnel for \(day) day of the war"
+            if !viewData.isEmpty {
+                guard let personnel = viewData[(viewData.count) - 1].personnel else { return }
+                guard let day = viewData[viewData.count - 1].day else { return }
+                guard let dayPersonLosses = viewData[viewData.count - 1].dayPersonLosses else { return }
+                totalEnemyPersonLosses.text = " ~ \(personnel)"
+                dayEnemyPersonLosses.text = "+ \(dayPersonLosses)"
+                enemyPersonLosses.text = "Liquidated personnel for \(day) day of the war"
+            }
         }
         if let viewDataEquipment = viewDataEquipment {
             dataLossesEquipment = viewDataEquipment

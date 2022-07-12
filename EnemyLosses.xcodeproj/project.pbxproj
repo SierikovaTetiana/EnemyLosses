@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6006F4A3287DF42B00DA0851 /* DynamicFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6006F4A2287DF42B00DA0851 /* DynamicFontSize.swift */; };
 		602631C728723491000C7638 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631C628723491000C7638 /* SearchData.swift */; };
 		602631C9287439BA000C7638 /* Loopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631C8287439BA000C7638 /* Loopable.swift */; };
 		602631CB28749087000C7638 /* EquipmentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602631CA28749087000C7638 /* EquipmentTitle.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6006F4A2287DF42B00DA0851 /* DynamicFontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFontSize.swift; sourceTree = "<group>"; };
 		602631C628723491000C7638 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		602631C8287439BA000C7638 /* Loopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loopable.swift; sourceTree = "<group>"; };
 		602631CA28749087000C7638 /* EquipmentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentTitle.swift; sourceTree = "<group>"; };
@@ -71,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6006F4A1287DF40D00DA0851 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6006F4A2287DF42B00DA0851 /* DynamicFontSize.swift */,
+			);
+			name = Extension;
+			path = Coordinator/Extension;
+			sourceTree = "<group>";
+		};
 		604CE7E9286F6E9F00DE5CEE = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +116,7 @@
 				604CE80A286F6F1400DE5CEE /* View */,
 				604CE80D286F6F4000DE5CEE /* Model */,
 				604CE810286F712B00DE5CEE /* ViewModel */,
+				6006F4A1287DF40D00DA0851 /* Extension */,
 				607996D42875FE26002AE881 /* Coordinator */,
 			);
 			path = MainModule;
@@ -275,6 +287,7 @@
 				607996DE2876C5D1002AE881 /* MainViewControllerExtension.swift in Sources */,
 				604CE814286F76D100DE5CEE /* MainViewExtension.swift in Sources */,
 				602631CB28749087000C7638 /* EquipmentTitle.swift in Sources */,
+				6006F4A3287DF42B00DA0851 /* DynamicFontSize.swift in Sources */,
 				602631C9287439BA000C7638 /* Loopable.swift in Sources */,
 				602631C728723491000C7638 /* SearchData.swift in Sources */,
 				607996EC28784AE3002AE881 /* CalendarViewExtension.swift in Sources */,

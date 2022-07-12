@@ -31,10 +31,10 @@ extension CalendarView {
     }
     
     func makeMonthLabel() -> UILabel {
-        let label = makeLabel(font: .systemFont(ofSize: 25, weight: .heavy))
+        let label = makeLabel(font: .systemFont(ofSize: DynamicFontSize().dynamicFontSize(25), weight: .heavy))
         return label
     }
-
+    
     func makeMonthBack() -> UIButton {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
@@ -63,14 +63,12 @@ extension CalendarView {
     }
     
     func makeMonthLossesCountLabel() -> UILabel {
-        let label = makeLabel(font: .systemFont(ofSize: 25, weight: .heavy))
-        label.backgroundColor = .systemGray6
+        let label = makeLabel(font: .systemFont(ofSize: DynamicFontSize().dynamicFontSize(25), weight: .heavy))
         return label
     }
     
     func makeMonthLossesLabel() -> UILabel {
-        let label = makeLabel(font: .systemFont(ofSize: 25, weight: .regular))
-        label.backgroundColor = .systemGray6
+        let label = makeLabel(font: .systemFont(ofSize: DynamicFontSize().dynamicFontSize(25), weight: .regular))
         return label
     }
     

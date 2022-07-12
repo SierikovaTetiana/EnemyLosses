@@ -18,35 +18,32 @@ extension MainView {
         addSubview(imageView)
         return imageView
     }
-
+    
     func makeTotalEnemyPersonLossesLabel() -> UILabel {
-        let totalEnemyPersonLosses = UILabel()
-        totalEnemyPersonLosses.translatesAutoresizingMaskIntoConstraints = false
-        totalEnemyPersonLosses.textAlignment = .left
-        totalEnemyPersonLosses.font = .systemFont(ofSize: 40, weight: .heavy)
+        let totalEnemyPersonLosses = makeLabel(numberOfLines: 1, fontSize: 40, fontWeight: .heavy, textAlignment: .left)
         totalEnemyPersonLosses.adjustsFontSizeToFitWidth = true
         totalEnemyPersonLosses.minimumScaleFactor = 0.5
-        addSubview(totalEnemyPersonLosses)
         return totalEnemyPersonLosses
     }
-
+    
     func makeDayEnemyPersonLossesLabel() -> UILabel {
-        let dayEnemyPersonLosses = UILabel()
-        dayEnemyPersonLosses.translatesAutoresizingMaskIntoConstraints = false
-        dayEnemyPersonLosses.textAlignment = .left
-        dayEnemyPersonLosses.font = .systemFont(ofSize: 15, weight: .regular)
-        addSubview(dayEnemyPersonLosses)
+        let dayEnemyPersonLosses = makeLabel(numberOfLines: 1, fontSize: 15, fontWeight: .regular, textAlignment: .left)
         return dayEnemyPersonLosses
     }
-
+    
     func makeEnemyPersonLossesLabel() -> UILabel {
-        let enemyPersonLossesLabel = UILabel()
-        enemyPersonLossesLabel.translatesAutoresizingMaskIntoConstraints = false
-        enemyPersonLossesLabel.numberOfLines = 0
-        enemyPersonLossesLabel.textAlignment = .natural
-        enemyPersonLossesLabel.font = .systemFont(ofSize: 20, weight: .regular)
-        addSubview(enemyPersonLossesLabel)
+        let enemyPersonLossesLabel = makeLabel(numberOfLines: 0, fontSize: 20, fontWeight: .regular, textAlignment: .natural)
         return enemyPersonLossesLabel
+    }
+    
+    func makeLabel(numberOfLines: Int, fontSize: CGFloat, fontWeight: UIFont.Weight, textAlignment: NSTextAlignment) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = numberOfLines
+        label.textAlignment = textAlignment
+        label.font = .systemFont(ofSize: DynamicFontSize().dynamicFontSize(fontSize), weight: fontWeight)
+        addSubview(label)
+        return label
     }
     
     func makeCollectView() -> UICollectionView {

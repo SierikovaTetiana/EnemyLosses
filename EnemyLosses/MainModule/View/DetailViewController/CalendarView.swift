@@ -8,14 +8,13 @@
 import UIKit
 
 class CalendarView: UIView {
-
+    
     var calendarData: CalendarData = .initial {
         didSet {
             setNeedsLayout()
         }
     }
     
-    private var calendarModel: CalendarProtocol = CalendarHelper()
     var calendarDays = [String]()
     var equipmentLosses = [String]()
     lazy var equipmentImage = makeEquipmentImage()
@@ -28,6 +27,7 @@ class CalendarView: UIView {
     lazy var monthLossesCountLabel = makeMonthLossesCountLabel()
     lazy var monthLossesLabel = makeMonthLossesLabel()
     lazy var activityIndicator = makeActivityIndicator()
+    private var calendarModel: CalendarProtocol = CalendarHelper()
     
     override func layoutSubviews() {
         super.layoutSubviews()

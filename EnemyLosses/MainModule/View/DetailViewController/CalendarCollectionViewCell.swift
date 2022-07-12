@@ -13,7 +13,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .medium)
+        label.font = .systemFont(ofSize: DynamicFontSize().dynamicFontSize(25), weight: .medium)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -21,7 +21,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     lazy var lossesLabel: UILabel = {
         let label = UILabel()
-        label.font = .italicSystemFont(ofSize: 13)
+        label.font = .italicSystemFont(ofSize: DynamicFontSize().dynamicFontSize(13))
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

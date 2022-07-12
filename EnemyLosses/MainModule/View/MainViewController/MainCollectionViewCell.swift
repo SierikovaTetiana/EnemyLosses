@@ -27,19 +27,19 @@ class MainCollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var count: UILabel = {
-        let count = makeLabel(font: .systemFont(ofSize: 25, weight: .heavy), textAlignment: .center)
+        let count = makeLabel(font: .systemFont(ofSize: DynamicFontSize().dynamicFontSize(25), weight: .heavy), textAlignment: .center)
         return count
     }()
     
     lazy var lastDayCount: UILabel = {
-        let count = makeLabel(font: .systemFont(ofSize: 15, weight: .regular), textAlignment: .left)
+        let count = makeLabel(font: .systemFont(ofSize: DynamicFontSize().dynamicFontSize(15), weight: .regular), textAlignment: .left)
         count.minimumScaleFactor = 0.5
         count.adjustsFontSizeToFitWidth = true
         return count
     }()
     
     lazy var title: UILabel = {
-        let title = makeLabel(font: UIFont.systemFont(ofSize: 18), textAlignment: .center)
+        let title = makeLabel(font: UIFont.systemFont(ofSize: DynamicFontSize().dynamicFontSize(18)), textAlignment: .center)
         title.numberOfLines = 0
         return title
     }()
@@ -60,29 +60,31 @@ class MainCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(lastDayCount)
         contentView.addSubview(title)
         
-        button.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
-        image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5).isActive = true
-        image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        image.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4).isActive = true
-        
-        count.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 15).isActive = true
-        count.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor).isActive = true
-        count.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: (contentView.frame.width)/5).isActive = true
-        
-        lastDayCount.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 15).isActive = true
-        lastDayCount.leadingAnchor.constraint(equalTo: count.trailingAnchor, constant: 0).isActive = true
-        lastDayCount.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        
-        title.topAnchor.constraint(equalTo: count.bottomAnchor, constant: 0).isActive = true
-        title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-        title.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3).isActive = true
-        title.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: contentView.topAnchor),
+            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            image.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.4),
+            
+            count.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 15),
+            count.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor),
+            count.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: (contentView.frame.width)/5),
+            
+            lastDayCount.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 15),
+            lastDayCount.leadingAnchor.constraint(equalTo: count.trailingAnchor, constant: 0),
+            lastDayCount.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            
+            title.topAnchor.constraint(equalTo: count.bottomAnchor, constant: 0),
+            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            title.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3),
+            title.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+        ])
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -10,7 +10,7 @@ import Foundation
 enum CalendarData {
     case initial
     case success(CalendarDetails)
-  
+    
     struct CalendarDetails {
         let detailImage: String
         let monthAndYear: String
