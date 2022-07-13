@@ -9,7 +9,7 @@ import Foundation
 
 extension MainViewModel {
     
-    func addDataPersonalLosses(data enemyPersonalLosses: [EnemyLossesPersonalToDecode]) {
+    func addDataPersonalLosses(data enemyPersonalLosses: [EnemyLossesPersonalToDecode], completion: @escaping ([ViewData.EnemyLossesPersonal]) -> Void) {
         var dataToPass = [ViewData.EnemyLossesPersonal]()
         var lastDayLosses = 0
         for item in enemyPersonalLosses {
@@ -25,19 +25,19 @@ extension MainViewModel {
                 lastDayLosses = personnelLossesInt
             }
         }
-        self.personalDataToPass = dataToPass
+        completion(dataToPass)
     }
     
-    func addDataEquipmentLosses(data enemyEquipmentLosses: [EnemyLossesEquipmentToDecode]) {
+    func addDataEquipmentLosses(data enemyEquipmentLosses: [EnemyLossesEquipmentToDecode], completion: @escaping ([ViewData.EnemyLossesEquipment]) -> Void) {
         var allDayEquipmentToPass = [ViewData.EnemyLossesEquipment]()
         for item in enemyEquipmentLosses {
             let vehiclesAndFuelTank = countVehiclesAndFuelTank(vehiclesAndFuelTank: item.vehiclesAndFuelTank, militaryAuto: item.militaryAuto, fuelTank: item.fuelTank)
             allDayEquipmentToPass.append(ViewData.EnemyLossesEquipment(date: item.date, day: "\(item.day)", aircraft: "\(item.aircraft)", helicopter: "\(item.helicopter)", tank: "\(item.tank)", APC: "\(item.APC)", fieldArtillery: "\(item.fieldArtillery)", MRL: "\(item.MRL)", militaryAuto: "\(item.militaryAuto)", fuelTank: "\(item.fuelTank)", vehiclesAndFuelTank: "\(vehiclesAndFuelTank)", drone: "\(item.drone)", navalShip: "\(item.navalShip)", antiAircraftWarfare: "\(item.antiAircraftWarfar)"))
         }
-        addLastDayEquipmentLosses(data: allDayEquipmentToPass)
+        completion(allDayEquipmentToPass)
     }
     
-    private func addLastDayEquipmentLosses(data allDayEquipmentToPass: [ViewData.EnemyLossesEquipment]) {
+    func addLastDayEquipmentLosses(data allDayEquipmentToPass: [ViewData.EnemyLossesEquipment], completion: @escaping ([ViewData.CellData]) -> Void) {
         var lastDayEquipmentToPass = [ViewData.CellData]()
         do {
             let lastDayEquipmentDict = try allDayEquipmentToPass[allDayEquipmentToPass.count - 1].allProperties()
@@ -55,9 +55,7 @@ extension MainViewModel {
                 }
             }
             lastDayEquipmentToPass.sort(by: { $0.equipmentStringForLabel < $1.equipmentStringForLabel })
-            DispatchQueue.main.async {
-                self.updateViewData?(.success(self.personalDataToPass, allDayEquipmentToPass, lastDayEquipmentToPass))
-            }
+            completion(lastDayEquipmentToPass)
         } catch {
             DispatchQueue.main.async {
                 self.updateViewData?(.failure(error.localizedDescription))
