@@ -27,8 +27,8 @@ struct EnemyLossesEquipmentToDecode: Codable {
     let APC: Int
     let fieldArtillery: Int
     let MRL: Int
-    let militaryAuto: Int
-    let fuelTank: Int
+    let militaryAuto: Int?
+    let fuelTank: Int?
     let vehiclesAndFuelTank: Int?
     let drone: Int
     let navalShip: Int

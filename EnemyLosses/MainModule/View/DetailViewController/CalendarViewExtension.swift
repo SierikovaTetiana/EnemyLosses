@@ -100,7 +100,7 @@ extension CalendarView {
             
             monthLossesCountLabel.topAnchor.constraint(equalTo: equipmentImage.bottomAnchor, constant: 10),
             monthLossesCountLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            monthLossesCountLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            monthLossesCountLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
             
             monthLossesLabel.topAnchor.constraint(equalTo: equipmentImage.bottomAnchor, constant: 10),
             monthLossesLabel.leadingAnchor.constraint(equalTo: monthLossesCountLabel.trailingAnchor),

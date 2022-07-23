@@ -48,7 +48,7 @@ class CalendarView: UIView {
         equipmentImage.image = UIImage(named: "\(image)")
         self.calendarDays = calendarDays
         equipmentLosses = lossesInDay
-        monthLossesCountLabel.text = monthLosses
+        monthLossesCountLabel.text = "\(monthLosses) items"
         monthLossesLabel.text = "Lost in \(monthAndYear)"
         collectionView.reloadData()
     }

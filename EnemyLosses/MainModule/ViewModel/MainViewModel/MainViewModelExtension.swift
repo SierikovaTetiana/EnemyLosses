@@ -32,7 +32,7 @@ extension MainViewModel {
         var allDayEquipmentToPass = [ViewData.EnemyLossesEquipment]()
         for item in enemyEquipmentLosses {
             let vehiclesAndFuelTank = countVehiclesAndFuelTank(vehiclesAndFuelTank: item.vehiclesAndFuelTank, militaryAuto: item.militaryAuto, fuelTank: item.fuelTank)
-            allDayEquipmentToPass.append(ViewData.EnemyLossesEquipment(date: item.date, day: "\(item.day)", aircraft: "\(item.aircraft)", helicopter: "\(item.helicopter)", tank: "\(item.tank)", APC: "\(item.APC)", fieldArtillery: "\(item.fieldArtillery)", MRL: "\(item.MRL)", militaryAuto: "\(item.militaryAuto)", fuelTank: "\(item.fuelTank)", vehiclesAndFuelTank: "\(vehiclesAndFuelTank)", drone: "\(item.drone)", navalShip: "\(item.navalShip)", antiAircraftWarfare: "\(item.antiAircraftWarfar)"))
+            allDayEquipmentToPass.append(ViewData.EnemyLossesEquipment(date: item.date, day: "\(item.day)", aircraft: "\(item.aircraft)", helicopter: "\(item.helicopter)", tank: "\(item.tank)", APC: "\(item.APC)", fieldArtillery: "\(item.fieldArtillery)", MRL: "\(item.MRL)", militaryAuto: "\(String(describing: item.militaryAuto))", fuelTank: "\(String(describing: item.fuelTank))", vehiclesAndFuelTank: "\(vehiclesAndFuelTank)", drone: "\(item.drone)", navalShip: "\(item.navalShip)", antiAircraftWarfare: "\(item.antiAircraftWarfar)"))
         }
         completion(allDayEquipmentToPass)
     }

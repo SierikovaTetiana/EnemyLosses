@@ -18,8 +18,8 @@ final class CalendarHelper: CalendarProtocol {
     
     public var updateCalendarData: ((CalendarData) -> ())?
     private let calendar = Calendar.current
-    //    private var selectedDate = Date() //set to current time -> show current month (USE IF data is up to date)
-    private var selectedDate = Date(timeIntervalSince1970: 1646153822) //set to March 2022
+        private var selectedDate = Date() //set to current time -> show current month (USE IF data is up to date)
+//    private var selectedDate = Date(timeIntervalSince1970: 1646153822) //set to March 2022
     private var totalSquares = [String]()
     private var monthLosses = [String]()
     private var totalMonthLosses: Int = 0
